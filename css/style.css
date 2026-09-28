@@ -1,0 +1,209 @@
+:root{
+    --backgroundColor: #BBB891;
+    --darkColor: black;
+    --softColor: #FFFDFB;
+    --backgroundHr: #BC7C14;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    text-align: center;
+}
+
+header{
+    background-color: var(--darkColor);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--softColor);
+    transition: all 0.25s ease-in-out; /* The animaton starts low*/
+}
+
+a:hover{
+    background-color: var(--backgroundHr);
+    border-radius: 6px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    text-align: center; 
+    max-width: 100%;
+}
+
+a.noHover:hover{ /* These a will not have a hover */
+    color: inherit; /* it keeps its original color*/
+    background-color: var(--backgroundTexts);
+    text-decoration: none;
+}
+
+header .iconUra{
+    width: 70px;
+    border-radius: 50%;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li{
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+h1{
+    font-size: 1.7rem;
+    color: var(--softColor);
+}
+
+h2{
+    font-size: 1.25rem;
+    color: var(--darkColor);
+    margin-bottom: 1rem;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; /* It centers the container*/
+    justify-content: center;
+    align-items: center;
+}
+
+main .menu{
+    position: relative; /* What it has absolute could be on this container*/
+    width: 100%;
+    overflow: hidden; /* It cuts right away, any element that it wants to go out of the container*/
+}
+
+main .menu img{
+    width: 300px;
+    height: 350px;
+    object-fit: cover; /* Better visualization for the image, more natural*/
+    border-radius: 10px;
+    border: 2px solid var(--backgroundHr); /* Gertting a border I cannot mix border + padding*/
+    margin: 1rem;
+}
+
+main .onLink{
+    position: absolute; /* This could be on what it has the relative position*/
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* It pushes the button at the bottom of the image*/
+    text-align: center;
+}
+
+main .onLink a{
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--darkColor);
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--backgroundHr);
+}
+
+section{
+    padding: 1rem;
+}
+
+section .card ul{
+    border: 1px solid var(--darkColor);
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+section .card ul li{
+    padding: 1rem;
+}
+
+hr{
+    height: 2.5px;
+    background-color: var(--backgroundHr);
+}
+
+footer{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--darkColor);
+    border-radius: 10px;
+}
+
+.socialMedia a img{
+    width: 80px;
+    height: 70px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    margin: 10px;
+}
+
+@media (min-width: 768px) {
+    *{
+        font-size: 1.1rem;
+    }
+    header .iconUra {
+        width: 80px;
+    }
+    main .menu img{
+        width: 420px;
+        height: 450px;
+    }
+    .socialMedia img {
+        margin: 2px;
+    }
+}
+
+@media (min-width: 1024px) {
+    *{
+        font-size: 1.2rem;
+    }
+    header .iconUra{
+        width: 90px;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        font-size: 1.7rem;
+    }
+    main .menu img{
+        width: 520px;
+        height: 600px;
+    }
+    main .menu .onLink a{
+        padding: 1.2rem;
+    }
+    section .card ul{
+        line-height: 1.7;
+    }
+    .socialMedia a img{
+        width: 120px;
+        height: 95px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 1024px) {
+    main{
+        flex-direction: row;
+    }
+}

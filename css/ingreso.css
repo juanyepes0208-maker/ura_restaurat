@@ -1,0 +1,139 @@
+:root{
+    --backgroundColor: #BBB891;
+    --darkColor: black;
+    --softColor: #FFFDFB;
+    --backgroundHr: #BC7C14;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh; /* It forces to the body to be at least 100% of the screen*/
+    padding: 1.5rem;
+}
+
+h1{
+    margin-bottom: 1rem;
+}
+
+form{
+    width: 100%; /* It is an excellent practice use width and min-width at the same time */ 
+    min-width: 100%;
+    background-color: transparent;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.inputGroup label{
+    display: none;
+}
+
+.input{
+    position: relative; /* Something it will be on this container*/
+    width: 100%;
+}
+
+.input input{
+    width: 100%;
+    padding: 1.5rem; /* Large left padding to make room for the icon */
+    margin: 1rem;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: var(--softColor);
+    color: var(--darkColor);
+    outline: none; /* It removes the ugly deafult blue highlight on the input*/
+    transition: border-color 0.2s;
+} 
+
+.input input:focus {
+    border-color: var(--backgroundHr);
+}
+
+.input img{
+    position: absolute; /* This is will be on the container that it has relative*/
+    left: 0.99rem;
+    top: 50%;
+    transform: translateY(-50%); /* It centers vertically*/
+    width: 24px;   /* Standard, clean mobile icon size */
+    height: 24px;  /* Square aspect ratio keeps them sharp */
+    object-fit: cover; /* It fixes the imagen design*/
+    border-radius: 50%;
+}
+
+button{
+    background-color: var(--backgroundHr);
+    color: var(--softColor);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    width: 180px;
+}
+
+form .noAccount a{
+    color: var(--darkColor);
+    font-size: 1.1rem;
+}
+
+.noAccount a:hover{
+    background-color: var(--backgroundHr);
+}
+
+@media (min-width: 768px) {
+    h1{
+        font-size: 2.5rem;
+    }
+    .input input{
+        width: 80%;
+        font-size: 1.4rem;
+        padding: 1.4rem;
+    }
+    .input img{
+        width: 40px;
+        height: 40px;
+    }
+    button{
+        width: 200px;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    form .noAccount a{
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1{
+        font-size: 3rem;
+    }
+    .input input{
+        width: 85%;
+        font-size: 1.6rem;
+
+    }
+    .input img{
+        width: 50px;
+        height: 50px;
+    }
+}
