@@ -26,13 +26,13 @@
         <form id="dishForm" enctype="multipart/form-data" autocomplete="off">
             <div class="inputGroup">
                 <label for="menuName">Nombre del plato</label>
-                <input type="text" id="menuName" name="menuName" placeholder="Nombre del plato">
+                <input type="text" id="menuName" name="menuName" placeholder="Nombre del plato" required>
             </div>
 
             <div class="inputGroup">
                 <label for="type">Tipo de comida</label>
                 <select name="type" id="type" required>
-                    <option value="" disabled selected>¿Es desayuno o almuerzo?</option>
+                    <option value="" disabled selected>¿Es desayuno o almuerzo?</option required>
                     <option value="Desayuno">Desayuno</option>
                     <option value="Almuerzo">Almuerzo</option>
                 </select>
@@ -40,7 +40,7 @@
 
             <div class="inputGroup">
                 <label for="dayOfWeek">Dia del plato</label>
-                <select name="dayOfWeek" id="dayOfWeek">
+                <select name="dayOfWeek" id="dayOfWeek" required>
                     <option value="" disabled selected>Selecciona un dia</option>
                     <option value="Lunes">Lunes</option>
                     <option value="Martes">Martes</option>
