@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ura - Admin</title>
+    <link rel="icon" href="/imgs/iconUra.jpg">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="noHover" href="admin.html">
+                <img class="iconUra" src="/imgs/iconUra.jpg" alt="Logo de la empresa Ura Industries">
+            </a>
+            <ul>
+                <li><a href="admin.html">Inicio</a></li>
+                <li><a href="/logout">Cerrar</a></li> <!-- It is login because I set it up so in index.js-->
+                <li><a href="/html/">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Actualizacion de menu semanal</h1>
+        <form id="dishForm" enctype="multipart/form-data" autocomplete="off">
+            <div class="inputGroup">
+                <label for="menuName">Nombre del plato</label>
+                <input type="text" id="menuName" name="menuName" placeholder="Nombre del plato">
+            </div>
+
+            <div class="inputGroup">
+                <label for="type">Tipo de comida</label>
+                <select name="type" id="type" required>
+                    <option value="" disabled selected>¿Es desayuno o almuerzo?</option>
+                    <option value="Desayuno">Desayuno</option>
+                    <option value="Almuerzo">Almuerzo</option>
+                </select>
+            </div>
+
+            <div class="inputGroup">
+                <label for="dayOfWeek">Dia del plato</label>
+                <select name="dayOfWeek" id="dayOfWeek">
+                    <option value="" disabled selected>Selecciona un dia</option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miercoles">Miercoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                </select>
+            </div>
+
+            <div class="inputGroup">
+                <label for="image">Imagen del plato</label>
+                <input type="file" id="image" accept="image/*" required>
+            </div>
+            
+            <div class="inputGroup">
+                <label for="description">Descripcion del plato</label>
+                <textarea name="description" id="description" rows="5" cols="40" placeholder="Descripcion del plato" maxlength="500" required></textarea>
+            </div>
+
+            <button type="submit">Subir plato</button>
+        </form>
+    </main>
+
+    <footer>
+            <div class="socialMedia">
+                <a class="noHover" href="https://co.linkedin.com/company/ura-industries">
+                    <img src="/imgs/linkedinIcon.jpg" alt="Icon instagram">
+                </a>
+            </div>
+            <div class="socialMedia">
+                <a class="noHover" href="https://www.instagram.com/uraindustries/">
+                    <img src="/imgs/instagramIcon.jpg" alt="Instagram icon">
+                </a>
+            </div>
+            <div class="socialMedia">
+                <a class="noHover" href="https://www.uraindustries.com/">
+                    <img src="/imgs/iconUra.jpg" alt="Ura icon">
+                </a>
+            </div>
+        </footer>
+        <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ura - Ingreso</title>
     <link rel="icon" href="../imgs/userIcon.png">
-    <link rel="stylesheet" href="../css/ingreso.css">
+    <link rel="stylesheet" href="/css/ingreso.css">
 </head>
 <body>
-    <form action="" method="post">
+    <form autocomplete="off"> <!-- I do not use method and action because my script async fecth does that -->
         <h1>Bienvenido</h1>
         <div class="inputGroup">
             <label for="user">Usuario</label>
             <div class="input">
-                <input type="text" name="user" id="user" placeholder="Digita tu usuario">
+                <input type="text" name="user" id="user" placeholder="Digita tu usuario" autocomplete="off" required>
                 <img src="../imgs/userIcon.png" alt="Icono de usuario" width="900" height="500">
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="inputGroup">
             <label for="password">Clave</label>
             <div class="input">
-                <input type="password" name="password" id="password" placeholder="Digita tu clave">
+                <input type="password" name="password" id="password" placeholder="Digita tu clave" autocomplete="off" required>
                 <img src="../imgs/passwordIcon.png" alt="Icono de password" width="920" height="512">
             </div>
         </div>
@@ -30,7 +30,10 @@
         <div class="noAccount">
             <a id="noAccount" href="#">Si no tienes cuenta, click aqui</a>
         </div>
+        <div id="errorDiv"></div>
     </form>
-    <script src="../js/noAccount.js"></script>
+
+    <script src="/js/noAccount.js"></script> <!-- I do not need the .. because with express all the folder are at the same level-->
+    <script src="/js/login.js"></script>
 </body>
 </html>

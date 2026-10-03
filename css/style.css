@@ -43,7 +43,7 @@ nav{
 
 a.noHover:hover{ /* These a will not have a hover */
     color: inherit; /* it keeps its original color*/
-    background-color: var(--backgroundTexts);
+    background-color: var(--darkColor);
     text-decoration: none;
 }
 
@@ -185,6 +185,9 @@ footer{
     h2{
         font-size: 1.7rem;
     }
+    main{
+        flex-direction: row;
+    }
     main .menu img{
         width: 520px;
         height: 600px;
@@ -199,11 +202,5 @@ footer{
         width: 120px;
         height: 95px;
         padding: 8px;
-    }
-}
-
-@media (min-width: 1024px) {
-    main{
-        flex-direction: row;
     }
 }

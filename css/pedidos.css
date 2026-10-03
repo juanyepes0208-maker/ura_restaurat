@@ -1,0 +1,64 @@
+:root{
+    --backgroundColor: #BBB891;
+    --darkColor: black;
+    --softColor: #FFFDFB;
+    --backgroundHr: #BC7C14;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    text-align: center;
+}
+
+header{
+    background-color: var(--darkColor);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--softColor);
+    transition: all 0.25s ease-in-out; /* The animaton starts low*/
+}
+
+a:hover{
+    background-color: var(--backgroundHr);
+    border-radius: 6px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    text-align: center; 
+    max-width: 100%;
+}
+
+a.noHover:hover{ /* These a will not have a hover */
+    color: inherit; /* it keeps its original color*/
+    background-color: var(--darkColor);
+    text-decoration: none;
+}
+
+header .iconUra{
+    width: 70px;
+    border-radius: 50%;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li{
+    padding: 1rem;
+    font-size: 1rem;
+}
