@@ -3,13 +3,19 @@ const mysql = require("mysql2/promise") // I am calling the package that I just 
 // because it will use modern syntax async/await on my express routes
 
 const pool = mysql.createPool({
+    // 1. Le decimos a Express que use la URL larga que guardamos en Vercel
     uri: process.env.DATABASE_URL, 
-    ssl: { rejectUnauthorized: false },
+    
+    // 2. Activamos la seguridad SSL obligatoria para conectarnos a Aiven en internet
+    ssl: { 
+        rejectUnauthorized: false 
+    },
+    
+    // 3. Mantenemos tus configuraciones originales de la fila virtual
     waitForConnections: true, 
     connectionLimit: 10, 
     queueLimit: 0 
 });
-
 
 
 // Prueba rápida de conexión (puedes borrarla después)
