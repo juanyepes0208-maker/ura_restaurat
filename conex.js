@@ -2,15 +2,21 @@ const mysql = require("mysql2/promise") // I am calling the package that I just 
 // It is the translator it knows how to package the node.js queries and send them to MySQL and I use promise
 // because it will use modern syntax async/await on my express routes
 
-const pool = mysql.createPool({ // pool is a group of connections, instead of creating one per user
-    host: "localhost", // Database in my computer
-    user: "root", // Administrator user for default
-    password: "1023523235", // My password created in WorkBench
-    database: "restaurant", // The database name
-    waitForConnections: true, // If the 10 lines are busy for clients, it won´t go down the requests will wait for milliseconds
-    connectionLimit: 10, // The maximiun connections that the Pool will have open, it is the standard in the development
-    queueLimit: 0 // Without limit of line, none will be rejected, it will be like a virtual line
-})
+const pool = mysql.createPool({
+    // ⚠️ Reemplazamos host, user, password, database y port por tu URL única:
+    uri: process.env.DATABASE_URL, 
+    
+    // ⚠️ Obligatorio para que Aiven acepte la conexión segura desde internet:
+    ssl: { 
+        rejectUnauthorized: false 
+    },
+    
+    // Mantenemos tus configuraciones originales de la fila virtual:
+    waitForConnections: true, 
+    connectionLimit: 10, 
+    queueLimit: 0 
+});
+
 
 // Prueba rápida de conexión (puedes borrarla después)
 pool.query("SELECT 1")

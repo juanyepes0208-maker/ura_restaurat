@@ -2,6 +2,17 @@ const express = require('express'); // I called the framework
 const bcrypt = require('bcryptjs'); // I called the security library
 const conex = require('./conex.js'); // Tu archivo de conexión a MySQL
 const session = require('express-session') // I called the library that remember the user logged in
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/')
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+})
+
+const upload = multer({ storage: storage})
 
 const app = express(); // It creates an instance of Express, where app I will use to set up all
 const path = require('path');
@@ -24,6 +35,7 @@ app.use("/css", express.static(path.join(__dirname, 'css'))); // __dirname is a 
 // that lives in my project into my hard drive
 app.use("/js", express.static(path.join(__dirname, 'js')));
 app.use("/imgs", express.static(path.join(__dirname, 'imgs'))); 
+app.use("/uploads", express.static(path.join(__dirname, 'uploads')))
 
 // 2. Servir tu HTML que está guardado en la raíz
 app.get('/login', (req, res) => { // When someone clicks on ingresar, point to ingreso.html
@@ -72,6 +84,29 @@ app.get('/', (req, res) => { // Get is used to read or request information
 });
 
 // --- RUTA 2: PROCESAR EL INICIO DE SESIÓN (LOG IN) ---
+
+app.post('/api/agregar/menu', upload.single("image"), async (req, res) => {
+    const {menuName, type, dayOfWeek, description} = req.body
+
+    // It verifies if multer stored the file with success
+    if (!req.file) {
+        return res.status(400).json({error: "Porfavor, selecciona una imagen para el plato"})
+    }
+    try {
+        const imageRoute = `/uploads/${req.file.filename}`
+
+        const query = 'INSERT INTO menu (menuName, type, dayOfWeek, description, image) VALUES (?, ?, ?, ?, ?)'
+        await conex.query(query, [menuName, type, dayOfWeek, description, image])
+
+        return res.json({
+            success: true,
+            message: "El plato ha sido guardado con exito"
+        })
+    }catch(error) {
+        console.error("Error al guardar el plato", error)
+        return res.status(500).json({error: "Hubo un error interno en el servidor al guardar el plato"})
+    }
+})
 
 app.post('/api/login', async (req, res) => { // We used post because the user sent confidential information as their password
     const { user, password } = req.body; // We catch the user and password that the user typed, it matches with the name in HTML
